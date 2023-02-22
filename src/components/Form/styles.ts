@@ -53,6 +53,14 @@ const FormInput = styled.input`
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
+  ::placeholder {
+    text-align: center;
+    font-family: "Noto Sans SC";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+  }
 `;
 const FormButton = styled.button`
   background: #2ed2c9;
@@ -65,6 +73,9 @@ const FormButton = styled.button`
   letter-spacing: -0.3px;
   color: #ffffff;
   cursor: pointer;
+  :disabled {
+    background-color: rgb(229, 229, 229) !important;
+  }
 `;
 
 export { StyledForm, Title, Subtitle, Total, InputGroup, FormInput, FormButton };
