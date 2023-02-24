@@ -1,10 +1,8 @@
-import React, { ChangeEvent, HTMLInputTypeAttribute } from "react";
+import React, { ChangeEvent, HTMLInputTypeAttribute, InputHTMLAttributes } from "react";
 import Placeholder from "react-select/dist/declarations/src/components/Placeholder";
 import { FormInput } from "../Form/styles";
 
-interface InputProps {
-  placeholder: string;
-  type: HTMLInputTypeAttribute;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   value: string;
 }

@@ -1,4 +1,4 @@
 export interface TipsOption {
-  value: number;
-  label: string;
+  readonly value: number;
+  readonly label: string;
 }

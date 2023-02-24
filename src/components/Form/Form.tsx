@@ -19,28 +19,26 @@ export const Form = () => {
   const [isDisabled, setDisabled] = useState(true);
   const [selectedValue, setSelectedValue] = useState<TipsOption>(options[0]);
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setTotal(
+      (Number(bill.value) * (1 + Number(selectedValue.value))) /
+        100 /
+        Number(persons.value)
+    );
+  };
+
   useEffect(() => {
     bill.value && persons.value ? setDisabled(false) : setDisabled(true);
   }, [bill.value, persons.value]);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (bill.value !== "" && persons.value !== "") {
-      const totalTips =
-        (Number(bill.value) * (1 + Number(selectedValue.value))) /
-        100 /
-        Number(persons.value);
-      setTotal(totalTips);
-    }
-  };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <Title>Welcome to App</Title>
       <Subtitle>Let’s go calculate your tips</Subtitle>
       <InputGroup>
-        <Input placeholder="Enter bill" type={"number"} {...bill} />
-        <Input placeholder="Enter persons" type={"number"} {...persons} />
+        <Input placeholder="Enter bill" type="number" {...bill} />
+        <Input placeholder="Enter persons" type="number" {...persons} />
         <CustomSelect
           value={selectedValue}
           onChange={setSelectedValue}
